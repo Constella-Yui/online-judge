@@ -11,3 +11,6 @@ dist/
 .env
 deploy/.env
 *.pem
+
+# 本地开发配置（含数据库密码），永不提交
+application-local.yml

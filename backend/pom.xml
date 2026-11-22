@@ -39,6 +39,20 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- MyBatis-Plus：ORM。注意是 spring-boot3 版，普通版在 Boot 3 下启动会报错 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+            <version>3.5.18</version>
+        </dependency>
+
+        <!-- 3.5.9 起分页插件被拆成独立依赖，不加则 selectPage 报错。D5 分页要用，先备好 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-jsqlparser</artifactId>
+            <version>3.5.18</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

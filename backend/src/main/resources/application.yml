@@ -5,6 +5,34 @@ spring:
   application:
     name: online-judge
 
+  # 本地密码单独放 application-local.yml（已 gitignore）
+  # optional: 表示文件不存在也不报错——别人克隆项目后不建这个文件也能启动
+  config:
+    import: optional:classpath:application-local.yml
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 127.0.0.1:3306 走 SSH 隧道，连到服务器上的 MySQL
+    url: jdbc:mysql://127.0.0.1:3306/oj?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    # password 不写在这，见 application-local.yml
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 5000
+
+mybatis-plus:
+  configuration:
+    # 数据库 submit_count → Java submitCount，不开这个字段全是 null
+    map-underscore-to-camel-case: true
+    # 把执行的 SQL 打到控制台，调试命脉
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: false
+    db-config:
+      # 主键由数据库自增（对应建表语句的 AUTO_INCREMENT）
+      id-type: auto
+
 logging:
   level:
     root: info
