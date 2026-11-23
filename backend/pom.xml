@@ -59,6 +59,12 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- 只要 BCrypt，不引整个 Spring Security（否则全站接口都会变 401） -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
