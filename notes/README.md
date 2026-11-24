@@ -62,6 +62,7 @@
 | [2026-11-21](2026-11-21.md) | Java 语法速通 + 接口与多态 | 访问控制 · 接口 · 集合 · IO · 排序 · IoC |
 | [2026-11-22](2026-11-22.md) | SQL 索引原理 + ER 设计 + MyBatis-Plus | 索引 · 最左前缀 · EXPLAIN · 1NF · BCrypt · schema · ER 图 |
 | [2026-11-23](2026-11-23.md) | 工程规范 + 第一个跑通的接口 | 统一响应体 · 分层 · 泛型 · IoC · 注解 · 400/409/500 · Lombok |
+| [2026-11-24](2026-11-24.md) | 全局异常处理：把错误做成一条通道 | 受检异常 · RuntimeException · @RestControllerAdvice · HandlerExceptionResolver · 重构 |
 
 ---
 
