@@ -19,10 +19,7 @@ public class UserController {
 
     @PostMapping("/register")
     public Result<Void> register(@RequestBody RegisterRequest req){
-        boolean ok=userService.register(req.getUsername(),req.getPassword(),req.getNickname());
-        if(!ok){
-            return Result.fail(ResultCode.CONFLICT,"用户名已存在");
-        }
+        userService.register(req.getUsername(),req.getPassword(),req.getNickname());
         return Result.success();
     }
 }

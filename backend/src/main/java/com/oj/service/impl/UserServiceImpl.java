@@ -1,6 +1,8 @@
 package com.oj.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.oj.common.BizException;
+import com.oj.common.ResultCode;
 import com.oj.entity.User;
 import com.oj.mapper.UserMapper;
 import com.oj.service.UserService;
@@ -17,11 +19,11 @@ public class UserServiceImpl implements UserService{
     private final BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
 
     @Override
-    public boolean register(String username,String rawPassword,String nickname){
+    public void register(String username,String rawPassword,String nickname){
         //1.查重
         Long count=userMapper.selectCount(new LambdaQueryWrapper<User>().eq(User::getUsername,username));
         if(count>0){
-            return false;
+            throw new BizException(ResultCode.CONFLICT,"用户名已存在");
         }
         //2.组装实体，密码哈希
         User user=new User();
@@ -32,8 +34,7 @@ public class UserServiceImpl implements UserService{
         try{
             userMapper.insert(user);
         }catch(DuplicateKeyException e){
-            return false;
+            throw new BizException(ResultCode.CONFLICT,"用户名已存在");
         }
-        return true;
     }
 }
