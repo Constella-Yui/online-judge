@@ -2,6 +2,7 @@ package com.oj.controller;
 
 import com.oj.common.Result;
 import com.oj.common.ResultCode;
+import jakarta.validation.Valid;
 import com.oj.dto.RegisterRequest;
 import com.oj.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public Result<Void> register(@RequestBody RegisterRequest req){
+    public Result<Void> register(@Valid @RequestBody RegisterRequest req){
         userService.register(req.getUsername(),req.getPassword(),req.getNickname());
         return Result.success();
     }
