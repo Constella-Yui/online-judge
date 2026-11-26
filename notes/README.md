@@ -63,6 +63,7 @@
 | [2026-11-22](2026-11-22.md) | SQL 索引原理 + ER 设计 + MyBatis-Plus | 索引 · 最左前缀 · EXPLAIN · 1NF · BCrypt · schema · ER 图 |
 | [2026-11-23](2026-11-23.md) | 工程规范 + 第一个跑通的接口 | 统一响应体 · 分层 · 泛型 · IoC · 注解 · 400/409/500 · Lombok |
 | [2026-11-24](2026-11-24.md) | 全局异常处理：把错误做成一条通道 | 受检异常 · RuntimeException · @RestControllerAdvice · HandlerExceptionResolver · 重构 |
+| [2026-11-25](2026-11-25.md) | @Valid，以及"文件是怎么长出来的" | @NotBlank/@Size · 边界与翻译 · 四种形状 · entity/dto/vo · 纵深防御 |
 
 ---
 
